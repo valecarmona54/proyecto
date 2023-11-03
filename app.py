@@ -1,3 +1,6 @@
-from view.ventana_principal import VentanaPrincipal
+from view.ventana_creacion_playlist import VentanaCreacionPlaylist
 if __name__ == "__main__":
-    app=VentanaPrincipal()
+    app=VentanaCreacionPlaylist()
+    app.mostrar()
+
+
