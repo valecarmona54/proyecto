@@ -12,12 +12,5 @@ class Playlist:
 
     def eliminar_cancion (self, cancion: Cancion ):
         if cancion in self.lista_de_canciones:
-            # Revisar logica de como se elimina libro del carrito el caso de estudio tienda libros 
-        
-
-
-            
-
-
-    
-
+            pass
+            # Revisar logica de como se elimina libro del carrito el caso de estudio tienda libros
