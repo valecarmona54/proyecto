@@ -1,3 +1,3 @@
-from modelo.software import Software
+from view.ventana_principal import VentanaPrincipal
 if __name__ == "__main__":
-    software=Software()
+    app=VentanaPrincipal()
