@@ -9,6 +9,7 @@ class VentanaCreacionPlaylist:
         self.lblNombre =tkinter.Label(self.ventana, text="Nombre")
         self.lblNombre.pack() #Parentesis
         self.txtNombreNuevaPlaylist = tkinter.Entry(self.ventana ,width=10)
+        self.txtNombreNuevaPlaylist.insert(0, "Python")
         self.txtNombreNuevaPlaylist.pack()
         self.btnCrearPlaylist =tkinter.Button(self.ventana, text="Crear playlist")
         self.btnCrearPlaylist.pack()

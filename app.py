@@ -6,8 +6,8 @@ from view.ventana_cola_reproduccion import VentanaColaReproduccion
 from view.ventana_catalogo import VentanaCatalogo
 
 if __name__ == "__main__":
-    app= VentanaCatalogo()
-    #app=VentanaPrincipal()
+    #app= VentanaCatalogo()
+    app=VentanaPrincipal()
     app.mostrar()
 
 

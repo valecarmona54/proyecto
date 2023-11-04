@@ -12,13 +12,20 @@ class VentanaDePlaylist:
         self.BotonVerPlaylist.pack()
         self.BotonAgregarPlaylist =tkinter.Button(self.ventana, text="Crear lista", command=self.abrir_ventana_creacion_playlist)
         self.BotonAgregarPlaylist.pack()
-        self.listboxCancionesDePlaylist = tkinter.Listbox(self.ventana)  #Revisar
-        self.listboxCancionesDePlaylist.pack() 
+        self.listboxDePlaylist = tkinter.Listbox(self.ventana, command=self.actualizar_lista_de_playlist)  #Revisar
+        self.listboxDePlaylist.pack() 
 
 
     def abrir_ventana_creacion_playlist(self):
         ventanaCreacionPlaylist = VentanaCreacionPlaylist(self)
         ventanaCreacionPlaylist.mostrar()
+
+    def actualizar_lista_de_playlist(self):
+        self.listboxDePlaylist.delete(0, tkinter.END)
+        for playlist in self.listboxDePlaylist:
+            self.listboxDePlaylist.insert(tkinter.END, playlist) 
+        
+
 
 
     def mostrar(self):
