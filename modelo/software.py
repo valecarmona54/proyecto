@@ -11,7 +11,7 @@ class Software:
         with os.scandir("resources") as carpeta:
             for archivo in carpeta:
                 if archivo.is_file():
-                    print(f"Nombre del archivo: {archivo.name}")
+                    #print(f"Nombre del archivo: {archivo.name}")
                     cancion1=Cancion(archivo.name.replace('_',' '),archivo.name)
                     lista_canciones.append(cancion1)
         return lista_canciones
