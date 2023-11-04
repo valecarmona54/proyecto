@@ -8,5 +8,4 @@ class Reproductor:
 
     def activar_modo_aleatorio (self):
         #TODO: desordenar cola de reproduccion
-
-        
+        pass

@@ -25,8 +25,6 @@ class VentanaDePlaylist:
         ventanaCancionPlaylist=VentanaCancionPlaylist(self)
         ventanaCancionPlaylist.mostrar()
 
-
-
     def actualizar_lista_de_playlist(self):
         for playlist in self.ventana_principal.software.listas_de_reproduccion: #Catalogo de software
             self.listboxDePlaylist.insert(tkinter.END, playlist.nombre_lista)

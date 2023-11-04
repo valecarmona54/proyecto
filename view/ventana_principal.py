@@ -12,13 +12,19 @@ class VentanaPrincipal:
         self.botonVerPlaylist.pack()
         self.listboxCatalogo = tkinter.Listbox(self.ventana)
         self.listboxCatalogo.pack()
+        self.cargar_catalogo_en_listbox()
 
     def abrir_ventana_de_playlist(self):
         ventanaDePlaylist = VentanaDePlaylist(self)
         #self.ventana.destroy()
         ventanaDePlaylist.mostrar()
-        
 
-        
+    def cargar_catalogo_en_listbox(self):
+            for catalogo in self.software.catalogo:
+                self.listboxCatalogo.insert(tkinter.END, catalogo.nombre_cancion)
+
+    """for catalogo in self.software.catalogo: #Catalogo de software
+        self.listboxCatalogo.insert(tkinter.END, catalogo._mostrar)
+    """
     def mostrar(self):
         self.ventana.mainloop()

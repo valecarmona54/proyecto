@@ -23,5 +23,8 @@ class Software:
             raise Exception(f"La cancion {cancion.nombre_cancion}, no esta en el catalogo")
 
     def agregar_playlist(self, playlist: Playlist):
-        self.listas_de_reproduccion.append(playlist)    
-        #TODO: lanzar excepction cuando ya exista una lista con ese nombre
+        if playlist in self.listas_de_reproduccion:
+            raise Exception (f"La existe una playlist con ese nombre")
+        else:
+            self.listas_de_reproduccion.append(playlist)    
+
