@@ -1,7 +1,8 @@
 import tkinter
 
 class VentanaReproductor:
-    def __init__(self):
+    def __init__(self, ventana_cancion_playlist ):
+        self.ventana_cancion_playlist = ventana_cancion_playlist
         self.ventana: tkinter.Tk= tkinter.Tk() #Se llama el metodo constructo de la clase Tk de la libreria tkinter
         self.ventana.title("Reproductor")
         self.ventana.geometry("400x400")

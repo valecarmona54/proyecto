@@ -14,7 +14,7 @@ class VentanaDePlaylist:
         self.BotonVerPlaylist.pack()
         self.BotonAgregarPlaylist =tkinter.Button(self.ventana, text="Crear lista", command=self.abrir_ventana_creacion_playlist)
         self.BotonAgregarPlaylist.pack()
-        self.listboxDePlaylist = tkinter.Listbox(self.ventana)  #Revisar
+        self.listboxDePlaylist = tkinter.Listbox(self.ventana) 
         self.listboxDePlaylist.pack() 
 
 
