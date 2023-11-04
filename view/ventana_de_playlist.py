@@ -1,4 +1,5 @@
 import tkinter 
+from tkinter import messagebox
 from view.ventana_creacion_playlist import VentanaCreacionPlaylist
 from view.ventana_cancion_playlist import VentanaCancionPlaylist
 
@@ -22,10 +23,18 @@ class VentanaDePlaylist:
         ventanaCreacionPlaylist.mostrar()
 
     def abrir_ventana_ver_playlist(self):
-        ventanaCancionPlaylist=VentanaCancionPlaylist(self)
-        ventanaCancionPlaylist.mostrar()
-
+        indices = self.listboxDePlaylist.curselection()
+        if indices:
+            selected_index = indices[0]
+            selected_playlist = self.ventana_principal.software.listas_de_reproduccion[selected_index]
+            ventanaCancionPlaylist = VentanaCancionPlaylist(self, selected_playlist)
+            ventanaCancionPlaylist.mostrar()
+        else:
+            messagebox.showinfo("Error", "Selecciona una lista de reproducción primero.")
+        
+    
     def actualizar_lista_de_playlist(self):
+        self.listboxDePlaylist.delete(tkinter.END)
         for playlist in self.ventana_principal.software.listas_de_reproduccion: #Catalogo de software
             self.listboxDePlaylist.insert(tkinter.END, playlist.nombre_lista)
 

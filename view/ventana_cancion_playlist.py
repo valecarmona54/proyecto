@@ -1,8 +1,9 @@
 import tkinter
 
 class VentanaCancionPlaylist:
-    def __init__(self, ventana_de_playlist):
+    def __init__(self, ventana_de_playlist, playlist):
         self.ventana_de_playlist = ventana_de_playlist
+        self.playlist=playlist
         self.ventana: tkinter.Tk= tkinter.Tk() #Se llama el metodo constructo de la clase Tk de la libreria tkinter
         self.ventana.title("Canciones de una playlist")
         self.ventana.geometry("400x400")
