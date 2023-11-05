@@ -21,6 +21,12 @@ class Software:
             playlist.agregar_cancion(cancion)
         else:
             raise Exception(f"La cancion {cancion.nombre_cancion}, no esta en el catalogo")
+        
+    """def eliminar_cancion_de_la_playlist(self, playlist: Playlist, cancion: Cancion ):
+        if cancion in self.lista_canciones: 
+             #TODO implementar bien la comparacion de la cancion 
+            playlist.agregar_cancion(cancion)
+    """
 
     def agregar_playlist(self, playlist: Playlist):
         if playlist in self.listas_de_reproduccion:

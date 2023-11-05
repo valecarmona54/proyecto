@@ -23,8 +23,5 @@ class VentanaPrincipal:
             for catalogo in self.software.catalogo:
                 self.listboxCatalogo.insert(tkinter.END, catalogo.nombre_cancion)
 
-    """for catalogo in self.software.catalogo: #Catalogo de software
-        self.listboxCatalogo.insert(tkinter.END, catalogo._mostrar)
-    """
     def mostrar(self):
         self.ventana.mainloop()

@@ -19,6 +19,6 @@ class VentanaCreacionPlaylist:
         self.ventanaDePlaylist.ventana_principal.software.agregar_playlist(nueva_playlist)
         self.ventanaDePlaylist.actualizar_lista_de_playlist()
         
-        def mostrar(self):
-            self.ventana.mainloop()
+    def mostrar(self):
+        self.ventana.mainloop()
 
