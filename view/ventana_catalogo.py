@@ -4,7 +4,7 @@ class VentanaCatalogo:
     def __init__(self, ventana_cancion_playlist, playlist):
         self.ventana_cancion_playlist=ventana_cancion_playlist
         self.playlist=playlist
-        self.ventana: tkinter.Tk= tkinter.Tk() #Se llama el metodo constructo de la clase Tk de la libreria tkinter
+        self.ventana: tkinter.Tk= tkinter.Tk() 
         self.ventana.title("Catalogo")
         self.ventana.geometry("400x400")
         self.botonAgregarLaCancionSeleccionada=tkinter.Button(self.ventana, text="Agregar canción", command=self.agregar_cancion_a_la_playlist)
@@ -18,8 +18,6 @@ class VentanaCatalogo:
                 #self.listboxCatalogo.insert(tkinter.END, cancion.nombre_cancion)
                 self.listboxCatalogo.insert(tkinter.END, cancion)
 
-  
-
     def agregar_cancion_a_la_playlist(self):
         indice_item_seleccionada = self.listboxCatalogo.curselection()
         cancion_seleccionada = self.listboxCatalogo.get(indice_item_seleccionada)
@@ -31,12 +29,6 @@ class VentanaCatalogo:
             messagebox.showinfo("Error", mensaje_de_excepcion)
     
         self.ventana_cancion_playlist.cargar_canciones()
-    """def agregar_cancion_a_la_playlist(self):
-        indice_item_seleccionada=self.listboxCatalogo.curselection()
-        cancion_seleccionada=self.listboxCatalogo.get(indice_item_seleccionada)
-        print(type(cancion_seleccionada))
-        raise Exception(self.ventana_cancion_playlist.ventana_de_playlist.ventana_principal.software.agregar_cancion_a_la_playlist(self.playlist, cancion_seleccionada)) #Try expcion
-        self.ventana_cancion_playlist.cargar_canciones()
-    """
+    
     def mostrar(self):
         self.ventana.mainloop()
