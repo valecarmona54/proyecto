@@ -15,7 +15,6 @@ class VentanaCatalogo:
 
     def cargar_catalogo_en_listbox(self):
             for cancion in self.ventana_cancion_playlist.ventana_de_playlist.ventana_principal.software.catalogo:
-                #self.listboxCatalogo.insert(tkinter.END, cancion.nombre_cancion)
                 self.listboxCatalogo.insert(tkinter.END, cancion)
 
     def agregar_cancion_a_la_playlist(self):
@@ -27,6 +26,7 @@ class VentanaCatalogo:
         except Exception as e:
             mensaje_de_excepcion = "Ocurrió un error al agregar la canción a la playlist: " + str(e)
             messagebox.showinfo("Error", mensaje_de_excepcion)
+        
     
         self.ventana_cancion_playlist.cargar_canciones()
     

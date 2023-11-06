@@ -1,7 +1,7 @@
 import tkinter
 from view.ventana_reproductor import VentanaReproductor
-from modelo.Playlist import Playlist
 from view.ventana_catalogo import VentanaCatalogo
+from tkinter import messagebox
 
 class VentanaCancionPlaylist:
     def __init__(self, ventana_de_playlist, playlist):
@@ -18,7 +18,7 @@ class VentanaCancionPlaylist:
         self.botonAgregarCancionALaPlaylist.pack()
         self.lblEliminarCancionDeLaPlaylist =tkinter.Label(self.ventana, text="Eliminar Cancion de la Playlist")
         self.lblEliminarCancionDeLaPlaylist.pack() 
-        self.botonEliminarCancionDeLaPlaylist =tkinter.Button(self.ventana, text=" - ")
+        self.botonEliminarCancionDeLaPlaylist =tkinter.Button(self.ventana, text=" - ", command=self.eliminar_cancion_de_playlist)
         self.botonEliminarCancionDeLaPlaylist.pack()
         self.listboxCancionesDePlaylist = tkinter.Listbox(self.ventana)  
         self.listboxCancionesDePlaylist.pack() 
@@ -35,6 +35,19 @@ class VentanaCancionPlaylist:
         self.listboxCancionesDePlaylist.delete(tkinter.END)
         for cancion in self.playlist.lista_de_canciones:
             self.listboxCancionesDePlaylist.insert(tkinter.END, cancion)
+
+    
+    def eliminar_cancion_de_playlist(self):
+        indice_item_seleccionada = self.listboxCancionesDePlaylist.curselection()
+        cancion_seleccionada = self.listboxCancionesDePlaylist.delete(indice_item_seleccionada)
+    
+        try:
+            self.ventana_de_playlist.ventana_principal.software.eliminar_cancion_de_la_playlist(self.playlist, cancion_seleccionada)
+        except Exception as e:
+            mensaje_de_excepcion = "Ocurrió un error al agregar la canción a la playlist: " + str(e)
+            messagebox.showinfo("Error", mensaje_de_excepcion)
+       
+        
         
         
     def mostrar(self):

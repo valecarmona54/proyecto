@@ -21,13 +21,13 @@ class Software:
             if nombre_cancion == cancion.nombre_cancion: #TODO implementar bien la comparacion de la cancion 
                 playlist.agregar_cancion(cancion)
                 return
-        #raise Exception(f"La cancion {cancion.nombre_cancion}, no esta en el catalogo")
         
-    def eliminar_cancion_de_la_playlist(self, playlist: Playlist, cancion: Cancion ):
-        if cancion in playlist.lista_de_canciones:  
-            playlist.eliminar_cancion(cancion)
+    def eliminar_cancion_de_la_playlist(self, playlist: Playlist, nombre_cancion:str ):
+        for cancion in playlist.lista_de_canciones:
+            if  nombre_cancion == cancion.nombre_cancion:
+                playlist.eliminar_cancion(cancion)
+                return
     
-
     def agregar_playlist(self, playlist: Playlist):
         if playlist in self.listas_de_reproduccion:
             raise Exception (f"La existe una playlist con ese nombre")

@@ -16,7 +16,7 @@ class VentanaPrincipal:
 
     def abrir_ventana_de_playlist(self):
         ventanaDePlaylist = VentanaDePlaylist(self)
-        #self.ventana.destroy()
+        self.ventana.destroy()
         ventanaDePlaylist.mostrar()
 
     def cargar_catalogo_en_listbox(self):
