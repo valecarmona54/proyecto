@@ -16,11 +16,12 @@ class Software:
                     lista_canciones.append(cancion1)
         return lista_canciones
     
-    def agregar_cancion_a_la_playlist(self, playlist: Playlist, cancion: Cancion ): #Mira si esta en el catalogo y lo agrega a la lista 
-        if cancion in self.catalogo: #TODO implementar bien la comparacion de la cancion 
-            playlist.agregar_cancion(cancion)
-        else:
-            raise Exception(f"La cancion {cancion.nombre_cancion}, no esta en el catalogo")
+    def agregar_cancion_a_la_playlist(self, playlist: Playlist, nombre_cancion: str ): #Mira si esta en el catalogo y lo agrega a la lista 
+        for cancion in self.catalogo:
+            if nombre_cancion == cancion.nombre_cancion: #TODO implementar bien la comparacion de la cancion 
+                playlist.agregar_cancion(cancion)
+                return
+        #raise Exception(f"La cancion {cancion.nombre_cancion}, no esta en el catalogo")
         
     def eliminar_cancion_de_la_playlist(self, playlist: Playlist, cancion: Cancion ):
         if cancion in playlist.lista_de_canciones:  

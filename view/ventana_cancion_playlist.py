@@ -28,15 +28,13 @@ class VentanaCancionPlaylist:
         ventanaReproductor.mostrar()
     
     def abrir_ventana_catalogo(self):
-        ventanaCatalogo = VentanaCatalogo(self)
+        ventanaCatalogo = VentanaCatalogo(self, self.playlist)
         ventanaCatalogo.mostrar()
 
-    def agregar_cancion_a_la_playlist(self):
-        nueva_cancion=Playlist(self.txtNombreNuevaPlaylist.get())
-        self.ventana_de_playlist.ventana_principal.software.agregar_cancion_a_la_playlist(nueva_cancion)
-        self.ventana_de_playlist.actualizar_lista_de_reproduccion()
-
-    #def cargar_canciones (self):
+    def cargar_canciones(self):
+        self.listboxCancionesDePlaylist.delete(tkinter.END)
+        for cancion in self.playlist.lista_de_canciones:
+            self.listboxCancionesDePlaylist.insert(tkinter.END, cancion)
         
         
     def mostrar(self):
