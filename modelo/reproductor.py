@@ -5,6 +5,7 @@ from pygame import mixer
 class Reproductor:
     def __init__(self):
         self.cola_de_reproduccion: list[Cancion]=[]
+        self.cancion_actual = None
 
     def agregar_canciones_a_la_cola(self, canciones:list[Cancion]):
         self.cola_de_reproduccion.append(canciones)
@@ -12,39 +13,36 @@ class Reproductor:
     def activar_modo_aleatorio(self):
         random.shuffle(self.cola_de_reproduccion)
 
-    def reproducir_cancion(self, cancion):
+    def reproducir_cancion(self, cancion: Cancion):
         if cancion:
-            self.cancion_actual = cancion
-            mixer.init()  
-            mixer.music.load(cancion.archivo)
-            mixer.music.play()
-            print("Reproduciendo:", self.cancion_actual.nombre)
+            if self.cancion_actual and mixer.music.get_busy():
+                print("Deteniendo la canción anterior...")
+                mixer.music.stop()
+        self.cancion_actual = cancion
+        mixer.init()
+        mixer.music.load(cancion.direccion_archivo)
+        mixer.music.play()
+        print("Reproduciendo:", self.cancion_actual.nombre_cancion)
+        while mixer.music.get_busy():
+            pass
+        print("Reproducción finalizada:", self.cancion_actual.nombre_cancion)
 
-    def pausar(self):
-        if mixer.music.get_busy():
-            if mixer.music.get_pos() > 0:
-                mixer.music.pause()
-                print("Canción Pausada")
-            else:
-                mixer.music.unpause()
-                print("Canción reanudada")
-        else:
-            print("No hay canción en reproducción")
+"""
+    def reproducir_cancion(self, cancion: Cancion):
+        if cancion:
+            if self.cancion_actual and mixer.music.get_busy():
+                print("Deteniendo la canción anterior...")
+                mixer.music.stop()
+        self.cancion_actual = cancion
+        mixer.init()
+        mixer.music.load(cancion.direccion_archivo)
+        mixer.music.play()
+        print("Reproduciendo:", self.cancion_actual.nombre_cancion)
+        while mixer.music.get_busy():
+            pass
+        print("Reproducción finalizada:", self.cancion_actual.nombre_cancion)
 
-    def siguiente_cancion(self):
-        if self.cola_de_reproduccion:
-            # Detener la canción actual si se está reproduciendo
-            mixer.music.stop()
-
-            # Obtener una canción aleatoria de la lista activa
-            cancion_aleatoria = random.choice(self.cola_de_reproduccion)
-
-            # Reproducir la canción aleatoria
-            mixer.music.load(cancion_aleatoria.archivo)
-            mixer.music.play()
-            self.cancion_actual = cancion_aleatoria
-            print("Canción omitida")
-            print(self.cancion_actual.nombre)
+"""
 
 
 

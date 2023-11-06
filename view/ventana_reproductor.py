@@ -8,7 +8,7 @@ class VentanaReproductor:
         self.ventana.geometry("400x400")
         self.lblPausaDespausa =tkinter.Label(self.ventana, text="Pausa y despausa")
         self.lblPausaDespausa.pack() 
-        self.botonPausaDespausa =tkinter.Button(self.ventana, text=" = ")
+        self.botonPausaDespausa =tkinter.Button(self.ventana, text=" = ", command=self.reproducir_lista)
         self.botonPausaDespausa.pack()
         self.lblCancionAnterios =tkinter.Label(self.ventana, text="Cancion anterior")
         self.lblCancionAnterios.pack() 
@@ -22,6 +22,12 @@ class VentanaReproductor:
         self.botonColaDeReproduccion.pack()
         self.botonColaAleatoria =tkinter.Button(self.ventana, text=" Cola aleatoria ")
         self.botonColaAleatoria.pack()
-        
+
+    def reproducir_lista(self):
+        self.ventana_cancion_playlist.ventana_de_playlist.ventana_principal.software.reproducir_lista(self.ventana_cancion_playlist.playlist)
+        #for cancion in self.ventana_cancion_playlist.playlist.lista_de_canciones:
+        #   self.ventana_cancion_playlist.ventana_de_playlist.ventana_principal.software.reproducir_lista()
+
+    
     def mostrar(self):
         self.ventana.mainloop()

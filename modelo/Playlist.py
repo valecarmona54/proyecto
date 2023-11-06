@@ -12,9 +12,5 @@ class Playlist:
 
     def eliminar_cancion (self, cancion_a_eliminar: Cancion ):
         self.lista_de_canciones = [cancion for cancion in self.lista_de_canciones if cancion.nombre_cancion != cancion_a_eliminar.nombre_cancion]
-        #for cancion in self.lista_de_canciones:
-         #   if cancion.nombre_cancion == cancion:
-          #      self.lista_de_canciones.remove(cancion)
-           #     return True
-
+    
  # Revisar logica de como se elimina libro del carrito el caso de estudio tienda libros

@@ -1,4 +1,5 @@
 from modelo.Playlist import Playlist
+from modelo.reproductor import Reproductor
 from modelo.cancion import Cancion
 import os
 class Software:
@@ -11,14 +12,13 @@ class Software:
         with os.scandir("resources") as carpeta:
             for archivo in carpeta:
                 if archivo.is_file():
-                    #print(f"Nombre del archivo: {archivo.name}")
                     cancion1=Cancion(archivo.name.replace('_',' '),archivo.name)
                     lista_canciones.append(cancion1)
         return lista_canciones
     
-    def agregar_cancion_a_la_playlist(self, playlist: Playlist, nombre_cancion: str ): #Mira si esta en el catalogo y lo agrega a la lista 
+    def agregar_cancion_a_la_playlist(self, playlist: Playlist, nombre_cancion: str ): 
         for cancion in self.catalogo:
-            if nombre_cancion == cancion.nombre_cancion: #TODO implementar bien la comparacion de la cancion 
+            if nombre_cancion == cancion.nombre_cancion: 
                 playlist.agregar_cancion(cancion)
                 return
         
@@ -33,4 +33,19 @@ class Software:
             raise Exception (f"La existe una playlist con ese nombre")
         else:
             self.listas_de_reproduccion.append(playlist)    
+
+    """
+    def reproducir_lista (self, playlist:Playlist, direccion_archivo: str ):
+        for cancion in playlist.lista_de_canciones:
+            if direccion_archivo ==cancion.direccion_archivo:
+                Reproductor.reproducir_cancion
+    """
+
+
+    def reproducir_lista(self, playlist: Playlist, direccion_archivo: str):
+        for cancion in playlist.lista_de_canciones:
+            if direccion_archivo == cancion.direccion_archivo:
+                reproductor = Reproductor() 
+            reproductor.reproducir_cancion(cancion)
+
 
