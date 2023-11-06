@@ -32,16 +32,18 @@ class VentanaCancionPlaylist:
         ventanaCatalogo.mostrar()
 
     def cargar_canciones(self):
-        self.listboxCancionesDePlaylist.delete(tkinter.END)
+        self.listboxCancionesDePlaylist.delete(0,tkinter.END)
+        print (len(self.playlist.lista_de_canciones))
         for cancion in self.playlist.lista_de_canciones:
+            print(cancion.nombre_cancion)
             self.listboxCancionesDePlaylist.insert(tkinter.END, cancion)
 
    
     def eliminar_cancion_de_playlist(self):
         indice_item_seleccionado = self.listboxCancionesDePlaylist.curselection()
         if indice_item_seleccionado:
-            self.listboxCancionesDePlaylist.delete(indice_item_seleccionado)
             cancion_seleccionada = self.listboxCancionesDePlaylist.get(indice_item_seleccionado[0])
+            self.listboxCancionesDePlaylist.delete(indice_item_seleccionado)
             self.ventana_de_playlist.ventana_principal.software.eliminar_cancion_de_la_playlist(self.playlist, cancion_seleccionada)
 
                 

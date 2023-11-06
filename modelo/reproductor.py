@@ -32,12 +32,12 @@ class Reproductor:
             print("No hay canción en reproducción")
 
     def siguiente_cancion(self):
-        if self.lista_:
+        if self.cola_de_reproduccion:
             # Detener la canción actual si se está reproduciendo
             mixer.music.stop()
 
             # Obtener una canción aleatoria de la lista activa
-            cancion_aleatoria = random.choice(self.lista_activa)
+            cancion_aleatoria = random.choice(self.cola_de_reproduccion)
 
             # Reproducir la canción aleatoria
             mixer.music.load(cancion_aleatoria.archivo)
