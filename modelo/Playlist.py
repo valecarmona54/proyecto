@@ -15,7 +15,5 @@ class Playlist:
             if cancion.nombre_cancion == cancion:
                 self.lista_de_canciones.remove(cancion)
                 return True
-        else:
-            raise Exception (f"La canción {cancion.nombre_cancion}, no esta en la playlist. ") 
 
  # Revisar logica de como se elimina libro del carrito el caso de estudio tienda libros

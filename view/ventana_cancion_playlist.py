@@ -36,19 +36,14 @@ class VentanaCancionPlaylist:
         for cancion in self.playlist.lista_de_canciones:
             self.listboxCancionesDePlaylist.insert(tkinter.END, cancion)
 
-    
+   
     def eliminar_cancion_de_playlist(self):
-        indice_item_seleccionada = self.listboxCancionesDePlaylist.curselection()
-        cancion_seleccionada = self.listboxCancionesDePlaylist.delete(indice_item_seleccionada)
-    
-        try:
+        indice_item_seleccionado = self.listboxCancionesDePlaylist.curselection()
+        if indice_item_seleccionado:
+            self.listboxCancionesDePlaylist.delete(indice_item_seleccionado)
+            cancion_seleccionada = self.listboxCancionesDePlaylist.get(indice_item_seleccionado[0])
             self.ventana_de_playlist.ventana_principal.software.eliminar_cancion_de_la_playlist(self.playlist, cancion_seleccionada)
-        except Exception as e:
-            mensaje_de_excepcion = "Ocurrió un error al agregar la canción a la playlist: " + str(e)
-            messagebox.showinfo("Error", mensaje_de_excepcion)
-       
-        
-        
-        
+
+                
     def mostrar(self):
         self.ventana.mainloop()
