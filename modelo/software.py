@@ -1,5 +1,4 @@
 from modelo.Playlist import Playlist
-from modelo.reproductor import Reproductor
 from modelo.cancion import Cancion
 import os
 class Software:
@@ -34,18 +33,5 @@ class Software:
         else:
             self.listas_de_reproduccion.append(playlist)    
 
-    """
-    def reproducir_lista (self, playlist:Playlist, direccion_archivo: str ):
-        for cancion in playlist.lista_de_canciones:
-            if direccion_archivo ==cancion.direccion_archivo:
-                Reproductor.reproducir_cancion
-    """
-
-
-    def reproducir_lista(self, playlist: Playlist, direccion_archivo: str):
-        for cancion in playlist.lista_de_canciones:
-            if direccion_archivo == cancion.direccion_archivo:
-                reproductor = Reproductor() 
-            reproductor.reproducir_cancion(cancion)
 
 

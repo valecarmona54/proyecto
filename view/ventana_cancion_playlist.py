@@ -1,7 +1,5 @@
 import tkinter
-from view.ventana_reproductor import VentanaReproductor
 from view.ventana_catalogo import VentanaCatalogo
-from tkinter import messagebox
 
 class VentanaCancionPlaylist:
     def __init__(self, ventana_de_playlist, playlist):
@@ -10,8 +8,6 @@ class VentanaCancionPlaylist:
         self.ventana: tkinter.Tk= tkinter.Tk() #Se llama el metodo constructo de la clase Tk de la libreria tkinter
         self.ventana.title("Canciones de una playlist")
         self.ventana.geometry("400x400")
-        self.botonReproducirPlaylist =tkinter.Button(self.ventana, text=" Reproducir ", command=self.abrir_ventana_reproductor)
-        self.botonReproducirPlaylist.pack()
         self.lblAgregarCancionPlaylist =tkinter.Label(self.ventana, text="Agregar canción a la playlist")
         self.lblAgregarCancionPlaylist.pack() 
         self.botonAgregarCancionALaPlaylist =tkinter.Button(self.ventana, text=" + ", command=self.abrir_ventana_catalogo)
@@ -22,11 +18,7 @@ class VentanaCancionPlaylist:
         self.botonEliminarCancionDeLaPlaylist.pack()
         self.listboxCancionesDePlaylist = tkinter.Listbox(self.ventana)  
         self.listboxCancionesDePlaylist.pack() 
-        
-    def abrir_ventana_reproductor(self):
-        ventanaReproductor = VentanaReproductor(self)
-        ventanaReproductor.mostrar()
-    
+            
     def abrir_ventana_catalogo(self):
         ventanaCatalogo = VentanaCatalogo(self, self.playlist)
         ventanaCatalogo.mostrar()
